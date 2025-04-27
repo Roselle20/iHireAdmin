@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="image">
+    <file>images/logo.svg</file>
+    <file>images/logotext.svg</file>
+    <file>images/username.svg</file>
+  </qresource>
+  <qresource prefix="icon">
+    <file>images/loginbtn.svg</file>
+  </qresource>
+</RCC>
