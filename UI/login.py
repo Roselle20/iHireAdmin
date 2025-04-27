@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         self.loginbtn.setFlat(True)
         self.loginbtn.setObjectName("loginbtn")
         self.welcome = QtWidgets.QLabel(self.body)
-        self.welcome.setGeometry(QtCore.QRect(170, 160, 201, 31))
+        self.welcome.setGeometry(QtCore.QRect(170, 160, 321, 31))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(18)
