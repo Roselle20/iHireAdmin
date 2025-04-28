@@ -1,9 +1,9 @@
 
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
+        
     def __init__(self):
         super().__init__()
         self.button_states = {
@@ -18,10 +18,11 @@ class Ui_MainWindow(object):
             "pushButton_3": False,
         }
         
-        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1354, 708)
+        MainWindow.setMinimumSize(QtCore.QSize(1354, 708))
+        MainWindow.setMaximumSize(QtCore.QSize(1354, 708))
         MainWindow.setStyleSheet("*{\n"
 "background-color: rgb(255, 255, 255)\n"
 "}")
@@ -542,12 +543,12 @@ class Ui_MainWindow(object):
         self.pushButton_3.setStyleSheet(stylesheet)
 
     def toggleButtonStyle(self, button, button_name):
-        if self.button_states[button_name]: 
+        if self.button_states[button_name]:  # If the button is already pressed
             button.setStyleSheet("border: none; border-radius: 5px; padding: 10px;")
             self.button_states[button_name] = False
         else:
             for key in self.button_states:
-                if key != button_name and self.button_states[key]: 
+                if key != button_name and self.button_states[key]:  # Reset other pressed buttons
                     getattr(self, key).setStyleSheet("border: none; border-radius: 5px; padding: 10px;")
                     self.button_states[key] = False
 
