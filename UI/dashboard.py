@@ -542,12 +542,12 @@ class Ui_MainWindow(object):
         self.pushButton_3.setStyleSheet(stylesheet)
 
     def toggleButtonStyle(self, button, button_name):
-        if self.button_states[button_name]:  # If the button is already pressed
+        if self.button_states[button_name]: 
             button.setStyleSheet("border: none; border-radius: 5px; padding: 10px;")
             self.button_states[button_name] = False
         else:
             for key in self.button_states:
-                if key != button_name and self.button_states[key]:  # Reset other pressed buttons
+                if key != button_name and self.button_states[key]: 
                     getattr(self, key).setStyleSheet("border: none; border-radius: 5px; padding: 10px;")
                     self.button_states[key] = False
 
