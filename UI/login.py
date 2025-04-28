@@ -1,7 +1,5 @@
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from dashboard import Ui_MainWindow as DashboardUI
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -9,15 +7,8 @@ class Ui_MainWindow(object):
         MainWindow.resize(1050, 580)
         MainWindow.setMaximumSize(QtCore.QSize(1050, 580))
         MainWindow.setStyleSheet("QMainWindow{\n"
-"url(:/icon/images/loginbtn.svg);\n"
-"url(:/image/images/logo.svg);\n"
-"url(:/image/images/logotext.svg);\n"
-"url(:/image/images/username.svg);\n"
-"}\n"
-"\n"
-"*{\n"
 "background-color: rgb(255, 255, 255);\n"
-"}")
+"}") #Removed unnecessary url references
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -75,6 +66,7 @@ class Ui_MainWindow(object):
         self.loginbtn.setIconSize(QtCore.QSize(100, 50))
         self.loginbtn.setFlat(True)
         self.loginbtn.setObjectName("loginbtn")
+        self.loginbtn.clicked.connect(lambda: self.showDashboard(MainWindow))
         self.welcome = QtWidgets.QLabel(self.body)
         self.welcome.setGeometry(QtCore.QRect(170, 160, 321, 31))
         font = QtGui.QFont()
@@ -90,8 +82,16 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    def showDashboard(self, MainWindow): #MainWindow is now a parameter
+        self.dashboardWindow = QtWidgets.QMainWindow()
+        self.dashboardUI = DashboardUI()
+        self.dashboardUI.setupUi(self.dashboardWindow)
+        self.dashboardWindow.show()
+        MainWindow.hide()
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.welcome.setText(_translate("MainWindow", "Welcome Admin!"))
+
 import resource_rc
