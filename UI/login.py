@@ -8,7 +8,7 @@ class Ui_MainWindow(object):
         MainWindow.setMaximumSize(QtCore.QSize(1050, 580))
         MainWindow.setStyleSheet("QMainWindow{\n"
 "background-color: rgb(255, 255, 255);\n"
-"}") #Removed unnecessary url references
+"}") 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
@@ -82,10 +82,11 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def showDashboard(self, MainWindow): #MainWindow is now a parameter
+    def showDashboard(self, MainWindow):
         self.dashboardWindow = QtWidgets.QMainWindow()
         self.dashboardUI = DashboardUI()
         self.dashboardUI.setupUi(self.dashboardWindow)
+        self.dashboardUI.connect_buttons(self.dashboardWindow)
         self.dashboardWindow.show()
         MainWindow.hide()
 
